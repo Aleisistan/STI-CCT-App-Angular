@@ -1,37 +1,96 @@
-<p>Seleccionar Usuario</p>
-
-<table class="table table-striped">
+<p></p>
+<h2>Seleccionar Usuario</h2>
+<div class="container mt-5">
+  <div class="mb-3">
+    <label for="userId" class="form-label">Selecciona el ID del Usuario</label>
+    <select id="userId" class="form-select" [(ngModel)]="selectedUserId" (change)="onSelectUserId">
+      <option value="" disabled selected>Elige un ID</option>
+      <option *ngFor="let user of users" [value]="user.id">{{ user.id }}</option>
+    </select>
+  </div>
+  <div class="btn-group d-flex" role="group" aria-label="Acciones de usuario">
+      <button type="button" class="btn btn-secondary">Elegir Usuario</button>
+    </div>
+  <table class="table table-striped" *ngIf="selectedUserId">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">id</th>
         <th scope="col">Nombre</th>
         <th scope="col">Instituto</th>
         <th scope="col">mail</th>
         <th scope="col">celular</th>
-        <th scope="col">image</th>
-
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <th>{{user.name}}</th>
+      <tr *ngFor="let user of users" [hidden]="user.id !== +selectedUserId">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
         <td class="resaltado">{{user.institute}}</td>
         <td>{{user.mail}}</td>
-        <td>{{user.cel}}</td>
-        <td>{{user.image}}</td>
-
+        <td *ngIf="user.id<=0" class="DANGER">{{user.cel}}</td> <!--Si el ID ES >0 Directamente no se muestra, pero si en <=0 se muestra en rojo-->
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td></td>
-      </tr>
-    </tbody>
+    </tbody> 
   </table>
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 col-md-8 col-sm-6">
+            <div class="card p-4 shadow-sm">
+              <h3 class="text-center">Crear Nuevo Usuario</h3>
+              <form>
+                <div class="mb-3">
+                  <div class="input-group">
+                    <span class="input-group-text">Nombre y Apellido</span>
+                    <input type="text" aria-label="First name" class="form-control" placeholder="Nombre">
+                    <input type="text" aria-label="Last name" class="form-control" placeholder="Apellido">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="instituto" class="form-label">Instituto</label>
+                  <select class="form-select" id="instituto">
+                    <option selected>Selecciona un instituto</option>
+                    <option value="1">CIFICEN Tandil</option>
+                    <option value="2">CIFICEN Olavarría</option>
+                    <option value="3">CIVETAN</option>
+                    <option value="4">CCT</option>
+                    <option value="5">IGEHCS</option>
+                    <option value="6">INCUAPA</option>
+                    <option value="7">IHLLA Azul</option>
+                    <option value="8">IHLLA Tandil</option>
+                    <option value="9">ISISTAN</option>
+                    <option value="10">Otros</option>
+                  </select>
+                </div>
+               
+                <div class="mb-3">
+                  <label for="email" class="form-label">Correo Electrónico</label>
+                  <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com">
+                </div>
+                <div class="mb-3">
+                  <div class="input-group">
+                  <span class="input-group-text">Celular    </span>
+                  <input type="text" aria-label="Caracteristica" class="form-control" placeholder="Característica">
+                  <input type="text" aria-label="Numero" class="form-control" placeholder="Número">
+                </div>
+                <div class="mb-3"></div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-primary btn-lg">Crear Usuario</button>
+                </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 col-md-8 col-sm-12">
+            <!-- Grupo de botones para acciones de usuario -->
+            <div class="btn-group d-flex" role="group" aria-label="Acciones de usuario">
+              <button type="button" class="btn btn-warning">Modificar Usuario</button>
+              <button type="button" class="btn btn-danger">Eliminar Usuario</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
