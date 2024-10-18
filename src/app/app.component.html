@@ -2,21 +2,28 @@
 
 <div class="container">
     <div class="row">
-      <div class="col-6">
+      <div class="col-12">
         
         <img src="assets/monitor.jpeg" width="60" height="90" >
-        
+        <img src="assets/soporte.jpg" width="100" height="90" >
+        <img src="assets/monitor.jpeg" width="60" height="90" >
+        <img src="assets/soporte.jpg" width="100" height="90" >
+        <img src="assets/monitor.jpeg" width="60" height="90" >
+        <img src="assets/soporte.jpg" width="100" height="90" >
+       
       </div>
       <div class="col-6" class=" fondo">
-       
-        
+ <router-outlet></router-outlet>      
+ <!--<about-us></about-us>-->
+ <!--<user-list></user-list>-->
+ <!--<order-list></order-list> -->      
 <ul class="nav justify-content-center">
   <h4>Servicio Técnico de Informática CCT Tandil</h4>
   <li class="nav-item ">
     <a class="nav-link text-primary active " aria-current="page" href="#">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-primary resaltado" href="#">About Us</a>
+    <a class="nav-link text-primary resaltado" [routerLink]="['/about']">About Us</a>
   </li>
   <li class="nav-item">
     <a class="nav-link text-primary" href="#">Contact</a>
