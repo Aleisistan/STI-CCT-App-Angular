@@ -1,17 +1,8 @@
 <p></p>
 <h2>Seleccionar Usuario</h2>
 <div class="container mt-5">
-  <div class="mb-3">
-    <label for="userId" class="form-label">Selecciona el ID del Usuario</label>
-    <select id="userId" class="form-select" [(ngModel)]="selectedUserId" (change)="onSelectUserId">
-      <option value="" disabled selected>Elige un ID</option>
-      <option *ngFor="let user of users" [value]="user.id">{{ user.id }}</option>
-    </select>
-  </div>
-  <div class="btn-group d-flex" role="group" aria-label="Acciones de usuario">
-      <button type="button" class="btn btn-secondary">Elegir Usuario</button>
-    </div>
-  <table class="table table-striped" *ngIf="selectedUserId">
+
+  <table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">id</th>
@@ -19,15 +10,18 @@
         <th scope="col">Instituto</th>
         <th scope="col">mail</th>
         <th scope="col">celular</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users" [hidden]="user.id !== +selectedUserId">
+      <tr *ngFor="let user of users">
         <td>{{user.id}}</td>
         <td>{{user.name}}</td>
         <td class="resaltado">{{user.institute}}</td>
         <td>{{user.mail}}</td>
-        <td *ngIf="user.id<=0" class="DANGER">{{user.cel}}</td> <!--Si el ID ES >0 Directamente no se muestra, pero si en <=0 se muestra en rojo-->
+        <td>{{user.cel ? user.cel : 'noceluser'}}</td> 
+        <td><button (click)= "borrar(user.id)"> Borrar </button> </td>
+    
       </tr>
     </tbody> 
   </table>
@@ -40,12 +34,12 @@
                 <div class="mb-3">
                   <div class="input-group">
                     <span class="input-group-text">Nombre y Apellido</span>
-                    <input type="text" aria-label="First name" class="form-control" placeholder="Nombre">
-                    <input type="text" aria-label="Last name" class="form-control" placeholder="Apellido">
+                    <input type="text" aria-label="First name" class="form-control" formControlName = "name" placeholder="Nombre">
+                    <input type="text" aria-label="Last name" class="form-control" formControlName = "name" placeholder="Apellido">
                   </div>
                 </div>
                 <div class="mb-3">
-                  <label for="instituto" class="form-label">Instituto</label>
+                  <label for="instituto" class="form-label" formControlName = "institute" >Instituto</label>
                   <select class="form-select" id="instituto">
                     <option selected>Selecciona un instituto</option>
                     <option value="1">CIFICEN Tandil</option>
@@ -62,7 +56,7 @@
                 </div>
                
                 <div class="mb-3">
-                  <label for="email" class="form-label">Correo Electrónico</label>
+                  <label for="email" class="form-label" formControlName = "mail" >Correo Electrónico</label>
                   <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com">
                 </div>
                 <div class="mb-3">
@@ -73,7 +67,7 @@
                 </div>
                 <div class="mb-3"></div>
                 <div class="d-grid gap-2">
-                  <button type="submit" class="btn btn-primary btn-lg">Crear Usuario</button>
+                  <button type="submit" class="btn btn-primary btn-lg" (click)= "crearUsuario()"> Crear Usuario</button>
                 </div>
                 </div>
               </form>
