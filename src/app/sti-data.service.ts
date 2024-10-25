@@ -21,9 +21,17 @@ export class StiDataService {
       return this.http.get<User[]>(URL_USERS);
   
     }
+    createOrder( orderData: any): Observable<any> {
+      return this.http,post<any> (URL_ORDERS);
+    }
     deleteUser(id:number) {
       return this.http.delete<any> (`${URL_USERS}/${id}`)
     }
+    
 }
 
+
+function post<T>(URL_ORDERS: string): Observable<any> {
+  throw new Error('Function not implemented.');
+}
 

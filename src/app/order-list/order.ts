@@ -5,5 +5,6 @@ export interface Order {
     description: string;
     description2: string;
     isActive: boolean;
-    username: string | null;
+    State: string;
+    
 }

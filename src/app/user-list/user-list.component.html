@@ -10,7 +10,7 @@
         <th scope="col">Instituto</th>
         <th scope="col">mail</th>
         <th scope="col">celular</th>
-        <th scope="col">Acciones</th>
+        <th scope="col" class="row justify-content-center">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -20,61 +20,14 @@
         <td class="resaltado">{{user.institute}}</td>
         <td>{{user.mail}}</td>
         <td>{{user.cel ? user.cel : 'noceluser'}}</td> 
-        <td><button (click)= "borrar(user.id)"> Borrar </button> </td>
+        <td><button type="button" class="btn btn-secondary" (click)= "CrearUser(user)">Modificar Usuario</button> </td>
+    
+        <td><button type="button" class="btn btn-danger" (click)= "borrar(user.id)"> Eliminar Usuario</button> </td>
     
       </tr>
     </tbody> 
   </table>
-      <div class="container mt-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-6 col-md-8 col-sm-6">
-            <div class="card p-4 shadow-sm">
-              <h3 class="text-center">Crear Nuevo Usuario</h3>
-              <form>
-                <div class="mb-3">
-                  <div class="input-group">
-                    <span class="input-group-text">Nombre y Apellido</span>
-                    <input type="text" aria-label="First name" class="form-control" formControlName = "name" placeholder="Nombre">
-                    <input type="text" aria-label="Last name" class="form-control" formControlName = "name" placeholder="Apellido">
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="instituto" class="form-label" formControlName = "institute" >Instituto</label>
-                  <select class="form-select" id="instituto">
-                    <option selected>Selecciona un instituto</option>
-                    <option value="1">CIFICEN Tandil</option>
-                    <option value="2">CIFICEN Olavarría</option>
-                    <option value="3">CIVETAN</option>
-                    <option value="4">CCT</option>
-                    <option value="5">IGEHCS</option>
-                    <option value="6">INCUAPA</option>
-                    <option value="7">IHLLA Azul</option>
-                    <option value="8">IHLLA Tandil</option>
-                    <option value="9">ISISTAN</option>
-                    <option value="10">Otros</option>
-                  </select>
-                </div>
-               
-                <div class="mb-3">
-                  <label for="email" class="form-label" formControlName = "mail" >Correo Electrónico</label>
-                  <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com">
-                </div>
-                <div class="mb-3">
-                  <div class="input-group">
-                  <span class="input-group-text">Celular    </span>
-                  <input type="text" aria-label="Caracteristica" class="form-control" placeholder="Característica">
-                  <input type="text" aria-label="Numero" class="form-control" placeholder="Número">
-                </div>
-                <div class="mb-3"></div>
-                <div class="d-grid gap-2">
-                  <button type="submit" class="btn btn-primary btn-lg" (click)= "crearUsuario()"> Crear Usuario</button>
-                </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <div class="container mt-4">
         <div class="row justify-content-center">
           <div class="col-lg-6 col-md-8 col-sm-12">

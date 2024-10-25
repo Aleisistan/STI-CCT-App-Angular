@@ -1,0 +1,47 @@
+<p></p>
+<h1>Crear Orden</h1>
+<h2>Seleccionar Usuario</h2>
+<div class="container mt-5">
+    <div class="col-12 ">
+        <div class="btn-group d-flex" role="group" aria-label="Acciones de usuario">
+            <button class="btn btn-secondary nav justify-content-center" [routerLink]="['/createUsers']">Si no tienes Usuario Crea uno nuevo</button>
+          </div>
+          </div>
+  <div class="mb-3">
+    <label for="userId" class="form-label">Selecciona tu Usuario</label>
+    <select id="userId" class="form-select" [(ngModel)]="selectedUserId" (change)="SelectUserId">
+      <option value="" disabled selected [routerLink]="['/users']" >Elige un ID</option>
+      <option *ngFor="let user of users" [value]="user.id">{{ user.id }}</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="Prioridad" class="form-label">Selecciona tu Prioridad</label>
+    <select class="form-select" id="Prioridad">
+            <option selected>Selecciona la Prioridad</option>
+            <option value="1">Alta</option>
+            <option value="2">Intermedia</option>
+            <option value="3">Planeada</option>
+            <option value="4">Preventiva</option>
+            <option value="5">Stan</option> 
+      
+    </select>
+  </div>
+
+      <div class="row">
+        <diV class="col-12">
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">Descripción</label>
+          </div>
+        </diV>
+        <div class="mb-3"></div>
+        <div class="col-12 "></div>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-primary" [routerLink]="['/orders']">Crear Orden</button>
+          <button type="button" class="btn  btn-warning">Modificar Orden</button>
+          <button type="button" class="btn btn-danger">Eliminar Orden</button>
+
+        </div>
+      </div>
+  

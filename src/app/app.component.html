@@ -13,21 +13,24 @@
 
     </div>
     <div class="col-6" class=" fondo">
-
-
       <ul class="nav justify-content-center">
-        <h4>Servicio Técnico de Informática CCT Tandil</h4>
         <li class="nav-item ">
-          <a class="nav-link text-primary active " aria-current="page" href="#">Home</a>
+          <a class="nav-link text-primary active " [routerLink]="['/home']" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-primary resaltado" [routerLink]="['/about']">About Us</a>
+          <a class="nav-link text-primary" [routerLink]="['/createOrders']" routerLinkActive="active">Create Orders</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-primary" [routerLink]="['/users']">Users</a>
+          <a class="nav-link text-primary" [routerLink]="['/createUsers']" routerLinkActive="active">Create Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-primary" [routerLink]="['/orders']">Orders</a>
+          <a class="nav-link text-primary" [routerLink]="['/users']" routerLinkActive="active">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" [routerLink]="['/orders']" routerLinkActive="active">Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" [routerLink]="['/about']" routerLinkActive="active">About Us</a>
         </li>
 
       </ul>

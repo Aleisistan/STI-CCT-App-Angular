@@ -13,6 +13,8 @@ import { User } from './user';
 })
 export class UserListComponent implements OnInit {
 
+
+
   selectedUserId: number | null = null;  // Variable para almacenar el ID seleccionado
   selectedUser: any = null;  // Variable para almacenar los datos del usuario seleccionado
   users: User[] = [];
@@ -28,6 +30,8 @@ export class UserListComponent implements OnInit {
       this.StiDataService.deleteUser(id).subscribe(_ => this.StiDataService.getAllUsers().subscribe(users => this.users = users));
     }
 
-
   }
+  CrearUser(_t16: User) {
+    throw new Error('Method not implemented.');
+    }
 }
