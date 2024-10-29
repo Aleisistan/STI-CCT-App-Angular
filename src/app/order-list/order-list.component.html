@@ -21,8 +21,16 @@
         <td class="resaltado">{{order.priority}}</td>
         <td>{{order.description}}</td>
         <td>{{order.description2}}</td>
-        <td>{{order.State}}</td>
+        <td><label for="Prioridad" class="form-label"></label>
+          <select class="form-select" id="Estado">
+                  <option selected>Selecciona el Estado de la Orden</option>
+                  <option value="1">En Espera</option>
+                  <option value="2">En Proceso</option>
+                  <option value="3">Realizada</option>
+          </select>
+          <td><button type="button" class="btn btn-secondary" (click)= "UpdateOrder(order.id)">Actualizar Orden</button> </td>
+        <td><button type="button" class="btn btn-danger" (click)= "borrar(order.id)">Eliminar Orden</button> </td>
       </tr>
     </tbody>
   </table>
- 
+</div>

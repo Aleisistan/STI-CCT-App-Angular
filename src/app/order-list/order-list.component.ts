@@ -11,6 +11,8 @@ import { Order } from './order';
   styleUrl: './order-list.component.scss'
 })
 export class OrderListComponent  implements OnInit {
+
+
     orders: Order[] = []; 
 
 order: any;
@@ -22,5 +24,24 @@ selectedOrderId: any;
       } );
       //this.StiDataService.getAll().subscribe (orders => this.orders = orders);
     }
+    borrar(id: number) {
+      if (confirm("esta seguro de borrar??")) {
+        this.StiDataService.deleteOrder(id).subscribe(_ => this.StiDataService.getAllOrders().subscribe(orders => this.orders = orders));
+      }
+
+      }
+      UpdateOrder(id: number) {
+        const updatedOrder = { 
+          priority: 'Alta', 
+          description: 'Descripción actualizada' 
+        };
+        
+        this.StiDataService.UpdateOrder(id, updatedOrder).subscribe(response => {
+          console.log('Orden actualizada:', response);
+        }, error => {
+          console.error('Error al actualizar la orden:', error);
+        });
+        
+        }
 }
-  
+

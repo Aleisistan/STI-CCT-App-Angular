@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AppComponent } from './app.component';
@@ -23,7 +24,7 @@ NgModule({
     declarations: [
         AppComponent, AboutUsComponent, UserListComponent, OrderListComponent, CreateOrderComponent, HomeComponent, CreateUserComponent
         ],
-    imports: [RouterModule.forRoot(routes), AppComponent, UserListComponent, AboutUsComponent, OrderListComponent, CreateOrderComponent, CreateUserComponent, HomeComponent],
+    imports: [RouterModule.forRoot(routes), AppComponent, BrowserModule, UserListComponent, AboutUsComponent, OrderListComponent, CreateOrderComponent, CreateUserComponent, HomeComponent],
     exports: [RouterModule],
     
     bootstrap: [AppComponent]

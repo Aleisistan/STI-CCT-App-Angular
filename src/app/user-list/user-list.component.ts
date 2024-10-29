@@ -1,6 +1,7 @@
 import { CommonModule, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { catchError, of } from 'rxjs';
 import { StiDataService } from '../sti-data.service';
 import { User } from './user';
 
@@ -27,11 +28,23 @@ export class UserListComponent implements OnInit {
   }
   borrar(id: number) {
     if (confirm("esta seguro de borrar??")) {
-      this.StiDataService.deleteUser(id).subscribe(_ => this.StiDataService.getAllUsers().subscribe(users => this.users = users));
-    }
+      this.StiDataService.deleteUser(id).pipe(catchError(error => {
+        if (error.status === 500) {
+          alert("El usuario tiene ordenes creadas, no se puede borrar.");
+        } else {
+          alert("Ocurrio un error al intentar borrar");
+        }
+        return of(null);
+      })
+      ).subscribe(response => {
+        if (response) {
+          this.StiDataService.getAllUsers().subscribe(users => this.users = users);
+        }
 
+      });
+    }
   }
   CrearUser(_t16: User) {
     throw new Error('Method not implemented.');
-    }
+  }
 }

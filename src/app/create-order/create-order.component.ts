@@ -17,11 +17,11 @@ import { UserListComponent } from '../user-list/user-list.component';
 export class CreateOrderComponent implements OnInit{
   users: any[] = [];  // Lista de usuarios
   selectedUserId: string = '';  // ID de usuario seleccionado
-  orderData: any = {
-    userId: '',
-    product: '',
-    quantity: 1 };
-SelectUserId: any;
+  username: any;
+  selectedPriority: any;
+  description: any;
+  description2: any;
+ 
 
   constructor(private StiDataService: StiDataService, private router: Router) { }
   ngOnInit(): void {
@@ -33,13 +33,34 @@ onSelectUserId(event: Event): void {
   // Realiza cualquier acción adicional que necesites
 }
 onSubmit(): void {
-  this.StiDataService.createOrder(this.orderData).subscribe({
-    next: () => {
-      // Redirige al componente order-list tras crear la orden
-      this.router.navigate(['/order-list']);
-    },
-    error: (err) => console.error('Error creando la orden:', err)
-  });
+  const orderData = { 
+  userId: this.selectedUserId,
+  name: this.username,
+  priority: this.selectedPriority,
+  description: this.description,
+  description2: this.description2,
+  isActive: 'true'
 
+ };
+  this.StiDataService.createOrder(orderData).subscribe(
+    response => {
+      console.log('Orden Creada:', response);
+      alert("Orden creada con exito");
+      // Redirige al componente order-list tras crear la orden
+      //this.router.navigate(['/order-list']);
+    },
+    error => console.error('Error creando la orden:', error));
+    alert("Error al crear la orden. Por favor, inténtelo de nuevo.");
+  }
+
+
+  
+  
+orderData(orderData: any) {
+    throw new Error('Method not implemented.');
+  };
+
+  
 }
-}
+ 
+
