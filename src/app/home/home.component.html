@@ -1,6 +1,6 @@
 <p></p>
     <h3> Bienvenidos al sistema de solicitud de turnos del Servicio Técnico de Informática</h3>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <div class="container px-2 py-2" id="hanging-icons">
@@ -15,7 +15,7 @@
                             <p>Problemas al encender equipos, caída de sistemas y redes. Problemas de Seguridad.
                                 Servicio dentro de
                                 las 48hs</p>
-                            <a class="btn btn-primary" [routerLink]="['/createOrders']" >
+                            <a class="btn btn-primary" [routerLink]="['/createOrders']" (click)="setHighPriority()" >
                                 Crear Orden
                             </a>
                         </div>
@@ -29,7 +29,7 @@
                             <p>Problemas de Virus, Malwares, Adywares. Instalación de Software y Hardware. Servicio
                                 dentro de las
                                 96hs</p>
-                            <a class="btn btn-primary" [routerLink]="['/createOrders']">
+                            <a class="btn btn-primary" [routerLink]="['/createOrders']" (click)="setIntermediatePriority()" >
                                 Crear Orden
                             </a>
                         </div>
@@ -43,7 +43,7 @@
                             <p>Armado de redes. Instalación de software o Hardware muy específicos. Optimización de
                                 sistemas
                                 operativos. Luego de 5 días hábiles</p>
-                            <a class="btn btn-primary" [routerLink]="['/createOrders']">
+                            <a class="btn btn-primary" [routerLink]="['/createOrders']" (click)="setPlannedPriority()">
                                 Crear Orden
                             </a>
                         </div>
@@ -55,7 +55,7 @@
                         <div>
                             <h4 class="fs-2 text-body-emphasis">Preventivo</h4>
                             <p>Limpieza física de equipos. Backups. Virtualización. Luego de 7 días hábiles</p>
-                            <a class="btn btn-primary" [routerLink]="['/createOrders']">
+                            <a class="btn btn-primary" [routerLink]="['/createOrders']" (click)="setPreventivePriority()">
                                 Crear Orden
                             </a>
                         </div>
@@ -67,7 +67,7 @@
                         <div>
                             <h4 class="fs-2 text-body-emphasis">STAN</h4>
                             <p>Servicio Tecnológico de Alto Nivel: Asistencia Congresos, Asesorías, Consultorías</p>
-                            <a class="btn btn-primary" [routerLink]="['/createOrders']">
+                            <a class="btn btn-primary" [routerLink]="['/createOrders']" (click)="setStanPriority()">
                                 Crear Orden
                             </a>
                         </div>

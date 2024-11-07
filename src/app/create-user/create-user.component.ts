@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './create-user.component.scss'
 })
 export class CreateUserComponent {
+onSubmit: any;
 
 }

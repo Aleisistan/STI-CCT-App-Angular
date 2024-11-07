@@ -18,7 +18,7 @@ export class CreateOrderComponent implements OnInit{
   users: any[] = [];  // Lista de usuarios
   selectedUserId: string = '';  // ID de usuario seleccionado
   username: any;
-  selectedPriority: any;
+  selectedPriority: string = '';
   description: any;
   description2: any;
  
@@ -26,7 +26,12 @@ export class CreateOrderComponent implements OnInit{
   constructor(private StiDataService: StiDataService, private router: Router) { }
   ngOnInit(): void {
     this.StiDataService.getAllUsers().subscribe(users => this.users = users);
-
+     // Recupera la prioridad almacenada en sessionStorage
+    const storedPriority = sessionStorage.getItem('selectedPriority');
+    if (storedPriority) {
+        this.selectedPriority = storedPriority;
+        sessionStorage.removeItem('selectedPriority'); // Limpia el valor después de usarlo
+    }
 }
 onSelectUserId(event: Event): void {
   this.selectedUserId = (event.target as HTMLSelectElement).value;
@@ -44,13 +49,13 @@ onSubmit(): void {
  };
   this.StiDataService.createOrder(orderData).subscribe(
     response => {
-      console.log('Orden Creada:', response);
+      //console.log('Orden Creada:', response);
       alert("Orden creada con exito");
       // Redirige al componente order-list tras crear la orden
       //this.router.navigate(['/order-list']);
     },
     error => console.error('Error creando la orden:', error));
-    alert("Error al crear la orden. Por favor, inténtelo de nuevo.");
+   
   }
 
 
