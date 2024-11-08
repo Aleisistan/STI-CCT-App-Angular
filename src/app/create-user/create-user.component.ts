@@ -1,8 +1,7 @@
 import { CommonModule, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { Router } from 'express';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { OrderListComponent } from '../order-list/order-list.component';
 import { StiDataService } from '../sti-data.service';
 import { UserListComponent } from '../user-list/user-list.component';
@@ -15,11 +14,11 @@ import { UserListComponent } from '../user-list/user-list.component';
   styleUrl: './create-user.component.scss'
 })
 export class CreateUserComponent {
-  id: number | undefined;
-  name!: string;
-  institute!: string;
-  mail!: string;
-  cel!: number;
+  id?: number;
+  name: string = '';
+  institute: string = '';
+  mail: string = '';
+  cel: number | undefined;
   selectedUserId: any;
   username: any;
 
@@ -40,11 +39,11 @@ export class CreateUserComponent {
     this.StiDataService.createUser(userData).subscribe(
       response => {
         //console.log('Orden Creada:', response);
-        alert("Orden creada con exito");
+        alert("Usuario creado con exito");
         // Redirige al componente order-list tras crear la orden
         //this.router.navigate(['/order-list']);
       },
-      error => console.error('Error creando la orden:', error));
+      error => console.error('Error creando el usuario:', error));
   }
 
 
