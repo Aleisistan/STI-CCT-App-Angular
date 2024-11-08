@@ -19,25 +19,23 @@
         <td>{{user.name}}</td>
         <td class="resaltado">{{user.institute}}</td>
         <td>{{user.mail}}</td>
-        <td>{{user.cel ? user.cel : 'noceluser'}}</td> 
-        <td><button type="button" class="btn btn-secondary" (click)= "CrearUser(user)">Modificar Usuario</button> </td>
-    
-        <td><button type="button" class="btn btn-danger" (click)= "borrar(user.id)"> Eliminar Usuario</button> </td>
-    
+        <td>{{user.cel ? user.cel : 'noceluser'}}</td>
+        <td><button type="button" class="btn btn-secondary" (click)="CrearUser(user)">Modificar Usuario</button> </td>
+
+        <td><button type="button" class="btn btn-danger" (click)="borrar(user.id)"> Eliminar Usuario</button> </td>
+
       </tr>
-    </tbody> 
+    </tbody>
   </table>
-      
-      <div class="container mt-4">
-        <div class="row justify-content-center">
-          <div class="col-lg-6 col-md-8 col-sm-12">
-            <!-- Grupo de botones para acciones de usuario -->
-            <div class="btn-group d-flex" role="group" aria-label="Acciones de usuario">
-              <button type="button" class="btn btn-warning">Modificar Usuario</button>
-              <button type="button" class="btn btn-danger">Eliminar Usuario</button>
-            </div>
-          </div>
+
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 col-sm-12">
+        <!-- Grupo de botones para acciones de usuario -->
+        <div class="btn-group d-flex" role="group" aria-label="Acciones de usuario">
+          <button type="button" class="btn btn-warning">Modificar Usuario</button>
+          <button type="button" class="btn btn-danger">Eliminar Usuario</button>
         </div>
       </div>
-    
-  
+    </div>
+  </div>
