@@ -11,8 +11,8 @@ import { User } from './user-list/user';
 
 })
 export class StiDataService {
-  private URL_USERS =  "https://sticcttandil.netlify.app/users" //http://localhost:3000/users";
-  private URL_ORDERS = "https://sticcttandil.netlify.app/orders"//http://localhost:3000/orders";
+  private URL_USERS =  "http://localhost:3000/users";
+  private URL_ORDERS = "http://localhost:3000/orders";
 
   constructor(private http: HttpClient) { }
   getAllOrders(): Observable<Order[]> {

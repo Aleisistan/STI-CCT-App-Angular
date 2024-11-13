@@ -1,7 +1,11 @@
 <p></p>
 <h1>Crear Orden</h1>
 <div class="container-fluid mt-5">
-  <div class="col-6 ">
+  <div *ngIf="mostrarBotonIrHome" class="col-6">
+    <p>Por favor, selecciona una prioridad antes de crear la orden.</p>
+    <button (click)="irAHomeParaPrioridad()" class="btn btn-warning">Ir a Home para Seleccionar Prioridad</button>
+  </div>
+  <div *ngIf="mostrarBotonPrioridad" class="col-6">
   <p>Si todavía no indicastes tu prioridad, indica la correcta según tus necesidades</p> 
   <button class="btn btn-secondary nav justify-content-center" [routerLink]="['/home']">Indica tu Prioridad</button>
   </div>
@@ -15,7 +19,9 @@
         
     </div>
   </div>
-
+  <div *ngIf="mostrarAdvertencia" class="alert alert-danger mt-3">
+    Por favor, selecciona una prioridad antes de crear la orden.
+  </div>
   <form (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="userId" class="form-label">Selecciona tu Id de Usuario</label>
