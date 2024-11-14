@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://sticcttandil.netlify.app'
+    apiUrl: 'https://sticcttandil.netlify.app/*/'
   };
   
