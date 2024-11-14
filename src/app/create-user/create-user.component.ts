@@ -21,12 +21,19 @@ export class CreateUserComponent {
   cel: number | undefined;
   selectedUserId: any;
   username: any;
+  errorMessage: string = '';
 
   constructor(private StiDataService: StiDataService, private router: Router) { }
   ngOnInit(): void {
 
   }
   onSubmit(): void {
+    // Verificación de campos obligatorios
+    if (!this.name || !this.institute || !this.mail) {
+      this.errorMessage = "Por favor, completa todos los campos obligatorios (*) antes de crear el usuario.";
+      return;  // Sale del método si algún campo está vacío
+    }
+
     const userData = {
       id: this.selectedUserId,
       name: this.name,

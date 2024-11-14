@@ -13,27 +13,27 @@ import { UserListComponent } from '../user-list/user-list.component';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-   setHighPriority(): void {
-       sessionStorage.setItem('selectedPriority', 'Alta');
-       alert("Prioridad seleccionada");
-   }
-   setIntermediatePriority(): void {
-       sessionStorage.setItem('selectedPriority', 'Intermedia');
-       alert("Prioridad seleccionada");
-   }
-   setPlannedPriority(): void {
+  setHighPriority(): void {
+    sessionStorage.setItem('selectedPriority', 'Alta');
+    alert("Prioridad seleccionada: Alta");
+  }
+  setIntermediatePriority(): void {
+    sessionStorage.setItem('selectedPriority', 'Intermedia');
+    alert("Prioridad seleccionada: Intermedia");
+  }
+  setPlannedPriority(): void {
     sessionStorage.setItem('selectedPriority', 'Planeada');
-    alert("Prioridad seleccionada");
-   }
-   setPreventivePriority(): void {
+    alert("Prioridad seleccionada: Planeada");
+  }
+  setPreventivePriority(): void {
     sessionStorage.setItem('selectedPriority', 'Preventiva');
-    alert("Prioridad seleccionada");
-   }
-   setStanPriority(): void{
+    alert("Prioridad seleccionada: Preventiva");
+  }
+  setStanPriority(): void {
     sessionStorage.setItem('selectedPriority', 'Stan');
-    alert("Prioridad seleccionada");
-   }
+    alert("Prioridad seleccionada: STAN");
+  }
 }
 
