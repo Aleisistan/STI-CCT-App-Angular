@@ -30,7 +30,7 @@ export class StiDataService {
   createUser(userData: any): Observable<any> {
     return this.http.post<any>(this.URL_USERS, userData);
   }
-  deleteUser(id: number) {
+  deleteUser(id: number) : Observable<any>  {
     return this.http.delete<any>(`${this.URL_USERS}/${id}`)
   }
   deleteOrder(id: number) {

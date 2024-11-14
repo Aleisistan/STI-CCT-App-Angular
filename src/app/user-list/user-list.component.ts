@@ -1,7 +1,7 @@
 import { CommonModule, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { catchError, of } from 'rxjs';
+import { catchError } from 'rxjs';
 import { StiDataService } from '../sti-data.service';
 import { User } from './user';
 
@@ -34,13 +34,14 @@ export class UserListComponent implements OnInit {
         } else {
           alert("Ocurrio un error al intentar borrar");
         }
-        return of(null);
+        return error;
       })
       ).subscribe(response => {
-        if (response) {
+        
           this.StiDataService.getAllUsers().subscribe(users => this.users = users);
-        }
-
+          
+       
+          console.log("se borro" + response);
       });
     }
   }
